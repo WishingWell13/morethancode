@@ -1,8 +1,8 @@
 @font-face {
     font-family: "Rubik";
-    src: url('../fonts/Rubik-Regular.ttf'),
-    src: url('../fonts/Rubik-Bold.ttf'),
-    src: url('../fonts/Rubik-Italic.ttf'),
+    src: url('../fonts/Rubik-Regular.ttf');
+    src: url('../fonts/Rubik-Bold.ttf');
+    src: url('../fonts/Rubik-Italic.ttf');
     src: url('../fonts/Rubik-BoldItalic.ttf')
 }
 
