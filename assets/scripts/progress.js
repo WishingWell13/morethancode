@@ -12,11 +12,16 @@ class ProgressToggle extends HTMLElement {
 
     let moduleName = "Default";
 
-    if (this.hasAttribute("module")) {
-      moduleName = this.getAttribute("module");
+    if (this.hasAttribute("data-module")) {
+      moduleName = this.getAttribute("data-module");
     }
 
-    const currStatus = localStorage.getItem(`${moduleName}-status`);
+    let currStatus = localStorage.getItem(`${moduleName}-status`);
+
+    if (currStatus == null) {
+      currStatus = "todo";
+      localStorage.setItem(`${moduleName}-status`, currStatus);
+    }
 
     styleElement.textContent = ` 
     .switch3-container {
@@ -147,7 +152,7 @@ class ProgressToggle extends HTMLElement {
         });
 
         inProgressButton.checked = true;
-        updateStatus("inprogress");
+        updateStatusManually("inprogress");
       }
     };
 
@@ -164,7 +169,7 @@ class ProgressToggle extends HTMLElement {
       return true;
     }
 
-    function updateStatus(newStatus) {
+    function updateStatusManually(newStatus) {
       if (
         !(
           newStatus == "todo" ||

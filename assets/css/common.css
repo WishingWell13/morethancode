@@ -72,6 +72,12 @@ a {
   color: var(--color-fg);
 }
 
+.notes {
+  margin-left: 80px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 a:hover {
   color: var(--link-hover);
   transition: 0.4s;
@@ -107,9 +113,10 @@ summary h3 {
 details p,
 details ul,
 details ol {
-  margin-left: calc(var(--content-offset) + 1em);
-  margin-top: 0;
-  margin-bottom: 0;
+  /* margin-left: 500px */
+  margin-left: calc(var(--content-offset) + 3em);
+  margin-top: 20;
+  margin-bottom: 20;
   padding-bottom: 0.5em;
 }
 
@@ -123,10 +130,12 @@ summary::before {
   width: calc(var(--content-offset));
   flex-shrink: 0;
   transition: 0.3s;
+  margin-left: 40px;
 }
 details[open] > summary::before {
   transform: rotate(90deg);
   transform-origin: 40% 45% 0;
+  margin-left: 40px;
 }
 
 button {
@@ -141,7 +150,8 @@ button {
 }
 
 button:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
   background-color: #00a5dc; /* Blue */
   border-radius: 8px;
   color: Black;
@@ -161,7 +171,7 @@ button:hover {
 }
 
 #navbar {
-  --navbar-height: 64px;
+  --navbar-height: 100px;
   position: fixed;
   height: var(--navbar-height);
   background-color: var(--navbar-bg-color);
