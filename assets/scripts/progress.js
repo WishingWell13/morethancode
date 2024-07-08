@@ -144,6 +144,7 @@ class ProgressToggle extends HTMLElement {
    );
 
 
+
    let relatedLink = document.querySelector(`a[data-module="${moduleName}"]`);
 
 
