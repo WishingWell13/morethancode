@@ -130,60 +130,69 @@ class ProgressToggle extends HTMLElement {
       </section>
     `;
 
-    this.shadowRoot.appendChild(styleElement);
+   this.shadowRoot.appendChild(styleElement);
     this.shadowRoot.appendChild(rootElement);
 
-    let radioButtons = rootElement.querySelectorAll(`.switch3-${moduleName}`);
-    radioButtons.forEach((radioButton) => {
-      radioButton.addEventListener("change", updateStatus);
-    });
 
-    const inProgressButton = rootElement.querySelector(
-      'input[type="radio"][role="toggle"][value="inprogress"]'
-    );
+   let radioButtons = rootElement.querySelectorAll(`.switch3-${moduleName}`);
+   radioButtons.forEach((radioButton) => {
+   });
 
-    let relatedLink = document.querySelector(`a[data-module="${moduleName}"]`);
 
-    relatedLink.onclick = () => {
-      let currStatus = localStorage.getItem(`${moduleName}-status`);
-      if (!currStatus || currStatus == "todo") {
-        radioButtons.forEach((radioButton) => {
-          radioButton.checked = false;
-        });
+   const inProgressButton = rootElement.querySelector(
+     'input[type="radio"][role="toggle"][value="inprogress"]'
+   );
 
-        inProgressButton.checked = true;
-        updateStatusManually("inprogress");
-      }
-    };
 
-    window.onbeforeunload = () => {
-      updateStatus();
-    };
+   let relatedLink = document.querySelector(`a[data-module="${moduleName}"]`);
 
-    function updateStatus() {
-      let currStatus = rootElement.querySelector(
-        `input[type="radio"][role="toggle"]:checked`
-      );
-      currStatus = currStatus ? currStatus.value : "";
-      localStorage.setItem(`${moduleName}-status`, currStatus);
-      return true;
-    }
 
-    function updateStatusManually(newStatus) {
-      if (
-        !(
-          newStatus == "todo" ||
-          newStatus == "inprogress" ||
-          newStatus == "done"
-        )
-      ) {
-        return false;
-      }
+   relatedLink.onclick = () => {
+     let currStatus = localStorage.getItem(`${moduleName}-status`);
+     if (!currStatus || currStatus == "todo") {
+       radioButtons.forEach((radioButton) => {
+         radioButton.checked = false;
+       });
 
-      localStorage.setItem(`${moduleName}-status`, newStatus);
-      return true;
-    }
-  }
+
+       inProgressButton.checked = true;
+       updateStatusManually("inprogress");
+     }
+   };
+
+
+   window.onbeforeunload = () => {
+     updateStatus();
+   };
+
+
+   function updateStatus() {
+     let currStatus = rootElement.querySelector(
+       `input[type="radio"][role="toggle"]:checked`
+     );
+     currStatus = currStatus ? currStatus.value : "";
+     localStorage.setItem(`${moduleName}-status`, currStatus);
+     return true;
+   }
+
+
+   function updateStatusManually(newStatus) {
+     if (
+       !(
+         newStatus == "todo" ||
+         newStatus == "inprogress" ||
+         newStatus == "done"
+       )
+     ) {
+       return false;
+     }
+
+
+     localStorage.setItem(`${moduleName}-status`, newStatus);
+     return true;
+   }
+ }
 }
+
 
 customElements.define("progress-toggle", ProgressToggle);
