@@ -70,7 +70,7 @@ describe("Testing for basic features of the Theme Toggle", () => {
     });
     console.log("Current Theme is: ", currentTheme);
 
-    expect(currentTheme).toBe(theme);
+    expect(currentTheme).toBe(theme); // light or dark
 
     return localStorage.getItem(`${theme}-status`);
   });

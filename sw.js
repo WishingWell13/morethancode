@@ -2,7 +2,7 @@
 //         so do not move it next to the other scripts
 
 const CACHE_NAME = "morethancode";
-const CACHE_VERSION = "v112";
+const CACHE_VERSION = "v113";
 
 // Installs the service worker. Feed it some initial URLs to cache
 self.addEventListener("install", function (event) {
