@@ -355,31 +355,16 @@ button:hover {
     }
   }
 
-  input {
-    color: var(--navbar-text-color-focus);
-    background-color: var(#f7f5d4);
-    font-family: "Rubik", sans-serif;
-    border: 1px solid var(--navbar-bg-contrast);
-  }
   
-  textarea {
-    font-family: "Rubik", sans-serif;
-    background-color: var(#00a5dc);
-    color: var(--navbar-text-color);
-    border: 1px solid var(--navbar-bg-contrast);
-  }
 
   
 
   [data-theme="light"] input::placeholder {
-    color: var(black);
+    color: var(white);
     font-family: "Rubik", sans-serif;
   }
   
-  [data-theme="dark"] input::placeholder {
-    color: var(white);
-    font-family: "Rubik", sans-serif;
-  } 
+
 
   
 
