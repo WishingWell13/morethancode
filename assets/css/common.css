@@ -60,6 +60,7 @@ body {
   background-color: var(--color-bg);
   color: var(--color-fg);
   margin-top: 100px;
+  margin-bottom: 5vh;
   width: 70%;
   /* max-width: 1600px; */
   margin-left: auto;
@@ -177,7 +178,7 @@ button:hover {
 }
 
 #navbar {
-  --navbar-height: 100px;
+  --navbar-height: 90px;
   position: fixed;
   height: var(--navbar-height);
   background-color: var(--navbar-bg-color);
