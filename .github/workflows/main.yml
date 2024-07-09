@@ -1,0 +1,37 @@
+name: Run Tests # name of the test
+
+run-name: ${{ github.actor }} has pushed changes
+
+on: [push] # the Github Action will activate "on" the event that you "push" to the repo
+
+jobs: # the things being executed
+  tests: # the name of your status check, will become important if we do branch protection
+    runs-on: ubuntu-latest # which device on Github's server that you are running the Actions on
+    steps:
+      - uses: actions/checkout@v4 # using version 4 of Actions
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Setup Xvfb
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb
+          sudo Xvfb :99 -ac &
+          export DISPLAY=:99
+
+      - name: Start local server
+        id: start-server
+        run: npm start &
+        env:
+          CI: true
+          SERVER_PID: $!
+
+      - name: Wait for server to be ready
+        run: sleep 10 # Adjust the sleep duration as necessary
+
+      - name: E2E Test
+        run: npm run test:ci # the actual testing line
+
+      - name: End action
+        if: always()
+        run: exit 0

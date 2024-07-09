@@ -1,0 +1,26 @@
+{
+  "name": "Ujima-morethancode",
+  "short_name": "morethancode",
+  "description": "A website compiling modules discussing different social and cultural impacts of computing, and what can go wrong if hardware and software are not developed with care and respect for its possible users.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "red",
+  "theme_color": "cyan",
+  "icons": [
+    {
+      "src": "./assets/images/icons/ujima-icon-500x500.png",
+      "sizes": "500x500",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/images/icons/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/images/icons/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}

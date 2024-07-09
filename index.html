@@ -1,23 +1,487 @@
-<html>
-	<head>
-		<title> Home | More Than Code</title>
-		<link rel='stylesheet' type='text/css' href='assets/css/common.css'>
-		<link rel='icon' type='image/png' href='assets/images/icon.png'>
-	</head>
+<html lang="en" data-theme="light">
+  <head>
+    <title>Home | More Than Code</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/common.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/images/icons/ujima-icon-500x500.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/images/icons/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/images/icons/favicon-32x32.png"
+    />
 
-	<body>
-		<h1>More Than Code</h1>
-	    <b>There's more to computing science than just code.</b> These modules discuss the different social and cultural impacts of computing, and what can go wrong if hardware and software are not developed with care and respect for its possible users. 	
-		<h2>Modules</h2>
-		<ul>
-			<li><a href="content/01-identity.pdf">Module 1: Identity</a></li>
-			<li><a href="">Module 2: Core Concepts [COMING SOON]</a></li>
-			<li><a href="content/03-diversity-and-inclusion.pdf">Module 3: Diversity and Inclusion</a></li>
-			<li><a href="04-accessibility-and-disability">Module 4: Accessibility and Disability</a></li>
-			<li><a href="content/05-racism-and-ethnicity.pdf">Module 5: Racism and Ethnicity</a></li>
-			<li><a href="content/06-lgbtqia-and-gender.pdf">Module 6: LGBTQIA+ and Gender</a></li>
-			<li><a href="content/07-classism-and-socioeconomic-status.pdf">Module 7: Classism and Socioeconomic Status</a></li>
-			<!--<li><a href="08-hidden-gems">Module 8: Hidden Gems</a></li>-->
-		</ul>
-	</body>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
+    />
+    <script src="assets/scripts/main.js" type="module"></script>
+
+    <!-- Progress Toggle Custom Element -->
+    <!-- <script src="assets/scripts/progress.js" type="module"></script> -->
+
+    <!-- Theme Toggle Custom Element -->
+    <script src="assets/scripts/themeToggle.js" type="module"></script>
+    <link rel="manifest" href="manifest.json" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header id="navbar">
+      <nav class="navbar-container container">
+        <a href="/" class="home-link">
+          <img
+            class="navbar-logo"
+            src="assets/images/icons/ujima-icon-500x500.png"
+            alt="ujima logo"
+          />
+          More Than Code
+        </a>
+
+        <theme-toggle></theme-toggle>
+
+        <button
+          type="button"
+          id="navbar-toggle"
+          aria-controls="navbar-menu"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <div id="navbar-menu" aria-labelledby="navbar-toggle">
+          <ul class="navbar-links">
+            <li class="navbar-item">
+              <a class="navbar-link" href="#Home">About</a>
+            </li>
+            <li class="navbar-item">
+              <a class="navbar-link" href="#Lessons">Lessons</a>
+            </li>
+            <li class="navbar-item">
+              <a class="navbar-link" href="#Contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <h1 id="Home">More Than Code</h1>
+    <b class="extra-bold">There's more to computing science than just code.</b>
+    These modules discuss the different social and cultural impacts of
+    computing, and what can go wrong if hardware and software are not developed
+    with care and respect for its possible users.
+    <h2 id="Lessons">Lessons</h2>
+    <p>
+      Click on the dotted underline text to open each module, or click on the
+      arrows to open a short summary of each module. Under each lesson that
+      includes slides, you will find the corresponding speaker notes for you to
+      follow along with
+    </p>
+
+    <!-- Lesson 1 -->
+    <details>
+      <summary>
+        <h3>
+          <a
+            href="https://drive.google.com/file/d/1ACyECmfHqjK4Pwmcy3_jZygQr4f5vebp/view?usp=sharing"
+            target="_blank"
+            >Lesson 1: Identity</a
+          >
+        </h3>
+      </summary>
+      <a
+        class="notes"
+        data-module="Module1"
+        href="content/01-identity.pdf"
+        target="_blank"
+        >Lesson 1 PDF</a
+      >
+      <p class="notes">
+        Only a small portion of an iceberg can be seen above the waterline.
+        Similarly, understanding someone's identity is limited by what we see on
+        the surface. This mini lesson explores the concept of identity and the
+        importance of going "below the waterline" to challenge and avoid
+        stereotypes and identity-based bias.
+      </p>
+      <ol>
+        Sections:
+        <li>Module 1: Define Identity</li>
+        <li>Module 2: Understand importance of identity</li>
+        <li>Module 3: Identity, Inclusion, and Belonging</li>
+        <li>Module 4: Applying Identity and Inclusion</li>
+      </ol>
+
+      <!-- <progress-toggle data-module="Module1"></progress-toggle> -->
+      <noscript><p>Enable javascript to track module progress!</p></noscript>
+    </details>
+
+    <!-- Lesson 2 -->
+    <details>
+      <summary>
+        <h3>
+          <a data-module="Module2" href=""
+            >Lesson 2: Core Concepts [COMING SOON]</a
+          >
+        </h3>
+      </summary>
+      <p>COMING SOON</p>
+    </details>
+    <details>
+      <summary>
+        <h3>
+          <a
+            href="https://docs.google.com/presentation/d/1pvxu5Em6mOkcFbRXWGYGrcwoI41hJW7MCZlzsuRXoKw/edit?usp=sharing"
+            target="_blank"
+            >Lesson 3: Diversity and Inclusion</a
+          >
+        </h3>
+      </summary>
+
+      <a
+        class="notes"
+        data-module="Module3"
+        target="_blank"
+        href="content/03-diversity-and-inclusion.pdf"
+        >Lesson 3 PDF</a
+      ><br />
+      <a
+        class="notes"
+        href="https://docs.google.com/document/d/1Qgl0086q8GhGkJTy2XhxK2x9lqVhjF-NvMBsx0sKBWk/edit?usp=sharing"
+        target="_blank"
+        >Speaker Notes</a
+      >
+      <ol>
+        This Lesson Teaches:
+        <li>Module 1: Define diversity and inclusion</li>
+        <li>Module 2: Explain the benefits of diversity</li>
+        <li>
+          Module 3: Identify the difference between diversity and inclusion
+        </li>
+        <li>Module 4: Define computer science</li>
+        <li>
+          Module 5: Illustrate their understanding through the module activity
+        </li>
+      </ol>
+
+      <!-- <progress-toggle data-module="Module3"></progress-toggle> -->
+    </details>
+
+    <!-- Lesson 4 -->
+    <details>
+      <summary>
+        <h3>
+          <a
+            href="https://docs.google.com/document/d/1I32ZuXRDxPndKWUeQdVRbQiVpsPxbSgRfTZVnW6mAI4/edit?usp=sharing"
+            target="_blank"
+            >Lesson 4: Accessibility and Disability</a
+          >
+        </h3>
+      </summary>
+      <a
+        class="notes"
+        data-module="Module4"
+        target="_blank"
+        href="content/04-accessibility-and-disability.pdf"
+        >Lesson 4 PDF</a
+      >
+      <p>
+        Disabilities can be visible or invisible and vary widely. The social
+        model of disability focuses on removing societal barriers rather than
+        fixing the individual. Language preferences (person-first vs.
+        identity-first) and strong cultural identities are important within
+        disability communities. Society often views disabilities negatively,
+        leading to dehumanization and bullying. Resources for creating
+        accessible technology include guidelines from the W3C and various
+        accessibility initiatives.
+      </p>
+
+      <!-- <progress-toggle data-module="Module4"></progress-toggle> -->
+    </details>
+
+    <details>
+      <summary>
+        <h3>
+          <a
+            href="https://docs.google.com/presentation/d/1-AeieDCUs2Ng7gd2sCujkrzTRFaoWgYXBVmnwwB75ww/edit?usp=sharing"
+            target="_blank"
+            >Lesson 5: Racism and Ethnicity
+          </a>
+        </h3>
+      </summary>
+      <a
+        class="notes"
+        data-module="Module5"
+        target="_blank"
+        href="content/05-racism-and-ethnicity.pdf"
+        >Lesson 5 PDF
+      </a>
+      <br />
+      <a
+        class="notes"
+        href="https://docs.google.com/document/d/1ExqHYPGlXtiUZfuksc4J4KHchHHShP7XQ8PNPvr3b64/edit?usp=sharing"
+        target="_blank"
+        >Speaker Notes
+      </a>
+      <p>
+        This module highlights racial bias in machine learning models across
+        recruitment, word associations, facial recognition, and criminal
+        justice, showing how these models often reflect historical human biases
+        and misrepresentative data. Examples include gender bias in recruitment
+        tools, stereotypical associations in language models, and facial
+        recognition algorithms with lower accuracy for non-white individuals.
+        Addressing these biases involves recognizing their causes and applying
+        practical exercises to improve model fairness.
+      </p>
+
+      <!-- <progress-toggle data-module="Module5"></progress-toggle> -->
+    </details>
+    <details>
+      <summary>
+        <h3>
+          <a
+            href="https://docs.google.com/presentation/d/1jcUnaS3DQDXlekXYqnogLr07xKUJ3KTKuSOG2fpr4Ro/edit?usp=sharing"
+            target="_blank"
+            >Lesson 6: LGBTQIA+ and Gender
+          </a>
+        </h3>
+      </summary>
+      <a
+        class="notes"
+        data-module="Module6"
+        target="_blank"
+        href="content/06-lgbtqia-and-gender.pdf"
+        >Lesson 6 PDF
+      </a>
+      <br />
+      <a
+        class="notes"
+        href="https://docs.google.com/document/d/1kyGKfBoIUerWuL7lNViBvyqL6JsUwIqyaFSLYWz1aIU/edit?usp=sharing"
+        target="_blank"
+        >Speaker Notes
+      </a>
+      <p>
+        This module discusses how technology encodes assumptions and biases,
+        particularly affecting LGBTQIA+ individuals. They cover definitions of
+        sex, gender, and related complexities, highlight harmful assumptions,
+        and provide historical examples of discrimination in STEM. The paradox
+        of visibility and how technology can perpetuate existing inequities are
+        explored, along with resources for further reading on gender and
+        technology.
+      </p>
+
+      <!-- <progress-toggle data-module="Module6"></progress-toggle> -->
+    </details>
+    <details>
+      <summary>
+        <h3>
+          <a
+            href="https://docs.google.com/presentation/d/1UCODgZJ21yffU2lBX1cnpzedSTcHzvZfD92kh2tOyZ4/edit?usp=sharing"
+            target="_blank"
+            >Lesson 7: Classism and Socioeconomic Status
+          </a>
+        </h3>
+      </summary>
+      <a
+        class="notes"
+        data-module="Module7"
+        target="_blank"
+        href="content/07-classism-and-socioeconomic-status.pdf"
+        >Lesson 7 PDF</a
+      >
+      <p>
+        This module explores classism in college, focusing on motivations for
+        attending college, the importance of independent versus interdependent
+        skills, and the impact of socioeconomic status on academic performance.
+        They include quizzes, a discussion of an article on college mobility
+        culture, and suggestions for improving support for students from lower
+        socioeconomic backgrounds.
+      </p>
+
+      <!-- <progress-toggle data-module="Module7"></progress-toggle> -->
+    </details>
+    <details>
+      <summary>
+        <h3>Video Resources</h3>
+      </summary>
+      <p>
+        Here are real scholars from around the world who deserve recognition for
+        their contributions to STEM. They have broken barriers despite their
+        identity and paved the way for others. Click on the scholars name below
+        to be redirected to a video to learn more about who they are and what
+        they have contributed.
+      </p>
+      <div>
+        <ul>
+          <li>
+            <a href="https://youtu.be/ECd7QsfVlcM" target="_blank">
+              Alan Emtage
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/eigo5G31k8g" target="_blank">
+              Jaime Escalante
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/bW_PNuYs3m0" target="_blank">
+              Xia Peisu
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/CRYduh6xxZ0" target="_blank">
+              Timnit Gebru
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/nusjZ4WtZpM" target="_blank">
+              Sylvester James
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/LubVx_SX-V4" target="_blank">
+              Dr. Mario Molina
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/s0p2WKf1Muo" target="_blank">
+              Chien Shiung Wu
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/wodQIx8FhmA" target="_blank">
+              Neil deGrasse Tyson
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/wKIJKxssBJc" target="_blank">
+              Lin Lanying
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/8kq9CwAaqZ4" target="_blank">
+              Klara Dan von Neumann
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/tgcM7LYgCls" target="_blank">
+              Annie Easley
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/qoi04luljmc" target="_blank">
+              Audrey Tang 1
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/sgVlgAkMS84" target="_blank">
+              Audrey Tang 2
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/GbLmDP6t1Oc" target="_blank">
+              Joan Clark
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/oAE8uFEVfgQ" target="_blank">
+              Donna Strickland
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/PByXxuWuOdk" target="_blank">
+              Clarence Ellis
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/kV4S-7IaCy4" target="_blank">
+              Dr. Chanda Prescod-Weinstein
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/Jw3ciJPTIMY" target="_blank">
+              Bui Tuong Phong
+            </a>
+          </li>
+        </ul>
+      </div>
+    </details>
+    <!--<li><a href="08-hidden-gems">Module 8: Hidden Gems</a></li>-->
+
+    <section id="reset-progress"></section>
+
+    <h2 id="Contact">Contact Us</h2>
+    <p>
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Contact Form</title>
+      </head>
+      <body>
+        <form
+          action="mailto:ujimasp@gmail.com"
+          method="get"
+          enctype="text/plain"
+        >
+          Subject:<br />
+          <input type="text" name="subject" placeholder="Your Subject" /><br />
+          <br />
+
+          Email:<br />
+          <input type="email" name="email" placeholder="Your Email" /><br />
+          <br />
+
+          Message:<br />
+          <textarea
+            name="body"
+            rows="5"
+            cols="30"
+            placeholder="Your Message"
+          ></textarea
+          ><br />
+          <br />
+
+          <input type="submit" value="Send" />
+        </form>
+      </body>
+      <br />
+      <a href="https://www.ujimasp.com" target="_blank">Ujima Lab Website</a>
+    </p>
+    <div>
+      Website Designers:
+      <ul>
+        <li>
+          <a href="https://github.com/WishingWell13" target="_blank"
+            >Andrew Smithwick</a
+          >
+        </li>
+        <li>
+          <a href="https://github.com/bdeleon15/bdeleon15" target="_blank">
+            Blanca De Leon
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/diya-boyapati-80a78723b/"
+            target="_blank"
+          >
+            Diya Boyapati
+          </a>
+        </li>
+        <li>
+          <a href="https://ameyaki.github.io/" target="_blank">
+            Ameya Kiwalkar
+          </a>
+        </li>
+      </ul>
+    </div>
+  </body>
 </html>
