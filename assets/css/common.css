@@ -352,8 +352,8 @@ button:hover {
   .navbar-links li nav:hover {
     background-color: #555;
     color: white;
-    }
   }
+}
 
   
 
@@ -365,7 +365,5 @@ button:hover {
   }
   
 
-
-  
 
 /* End Navbar */
