@@ -90,17 +90,18 @@
         <h3>
           <a
             class="notes"
-            data-module="Module1" 
+            data-module="Module1"
             href="https://drive.google.com/file/d/1ACyECmfHqjK4Pwmcy3_jZygQr4f5vebp/view?usp=sharing"
             target="_blank"
             >Lesson 1: Identity</a
           >
         </h3>
       </summary>
-      <a class="notes"
-       data-module="Module1" 
-       href="content/01-identity.pdf"
-       target="_blank"
+      <a
+        class="notes"
+        data-module="Module1"
+        href="content/01-identity.pdf"
+        target="_blank"
         >Lesson 1 PDF</a
       >
       <p class="notes">
@@ -118,7 +119,7 @@
         <li>Module 4: Applying Identity and Inclusion</li>
       </ol>
 
-      <progress-toggle [data-module*="Module1"]></progress-toggle>
+      <progress-toggle [data-module*="Module1" ]></progress-toggle>
       <noscript><p>Enable javascript to track module progress!</p></noscript>
     </details>
 
@@ -204,7 +205,7 @@
         accessibility initiatives.
       </p>
 
-      <progress-toggle [data-module*="Module4"]></progress-toggle>
+      <progress-toggle [data-module*="Module4" ]></progress-toggle>
     </details>
 
     <details>
@@ -420,28 +421,39 @@
     <h2 id="Contact">Contact Us</h2>
     <p>
       <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Contact Form</title>
       </head>
       <body>
-        <form action="mailto:ujimasp@gmail.com" method="get" enctype="text/plain">
-          Subject:<br>
-          <input type="text" name="subject" placeholder="Subject"><br> 
-          <br>
-         
-          Email:<br>
-          <input type="email" name="email" placeholder="Your Email"><br>
-          <br>
-         
-          Message:<br>
-          <textarea name="body" rows="5" cols="30" placeholder="Your Message"></textarea><br>
-          <br>
-          
-          <input type="submit" value="Send" >
+        <form
+          action="mailto:ujimasp@gmail.com"
+          method="get"
+          enctype="text/plain"
+        >
+          Subject:<br />
+          <input type="text" name="subject" placeholder="Subject" /><br />
+          <br />
+
+          Email:<br />
+          <input type="email" name="email" placeholder="Your Email" /><br />
+          <br />
+
+          Message:<br />
+          <textarea
+            name="body"
+            rows="5"
+            cols="30"
+            placeholder="Your Message"
+          ></textarea
+          ><br />
+          <br />
+
+          <input type="submit" value="Send" />
         </form>
-      </body><br>
-      <a href="https://www.ujimasp.com" target="_blank">Ujima Lab Website</a>	
+      </body>
+      <br />
+      <a href="https://www.ujimasp.com" target="_blank">Ujima Lab Website</a>
     </p>
     <div>
       Website Designers:
