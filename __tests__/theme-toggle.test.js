@@ -59,7 +59,7 @@ describe("Testing for basic features of the Theme Toggle", () => {
     await page.waitForSelector("theme-toggle");
     const themeToggle = await page.$("theme-toggle");
 
-    // await themeToggle.click();
+    await themeToggle.click();
 
     const theme = await page.evaluate((myItem) => {
       return myItem.getAttribute("data-theme");
@@ -69,6 +69,9 @@ describe("Testing for basic features of the Theme Toggle", () => {
       return localStorage.getItem("theme");
     });
     console.log("Current Theme is: ", currentTheme);
+
+    expect(currentTheme).toBe(theme);
+
     return localStorage.getItem(`${theme}-status`);
   });
 });
