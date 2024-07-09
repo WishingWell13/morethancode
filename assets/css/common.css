@@ -355,15 +355,9 @@ button:hover {
   }
 }
 
-  
-
-  
-
-  [data-theme="light"] input::placeholder {
-    color: var(white);
-    font-family: "Rubik", sans-serif;
-  }
-  
-
+[data-theme="light"] input::placeholder {
+  color: var(white);
+  font-family: "Rubik", sans-serif;
+}
 
 /* End Navbar */
