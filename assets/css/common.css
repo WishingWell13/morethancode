@@ -88,8 +88,9 @@ b {
   color: var(--link-color);
 }
 
-b [data-theme="dark"] {
-  color: var(--color-darker);
+.extrabold {
+  font-weight: 900;
+  color: #000;
 }
 
 h1,
