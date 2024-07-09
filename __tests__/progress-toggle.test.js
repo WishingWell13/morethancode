@@ -12,7 +12,7 @@ describe("Testing for basic features of the Progress Toggle", () => {
       }
     });
 
-    await page.goto("http://localhost:3000/index.html");
+    await page.goto("http://localhost:3000/toggle.html");
   });
 
   afterAll(async () => {
