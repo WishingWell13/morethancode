@@ -52,4 +52,22 @@ describe("Testing for basic features of the Theme Toggle", () => {
 
     expect(twoClick).toBe(initialTheme);
   });
+
+  // data-theme!
+
+  it("should reveal localStorage value", async () => {
+    await page.waitForSelector("theme-toggle");
+    const themeToggle = await page.$("theme-toggle");
+
+    // await themeToggle.click();
+
+    const moduleName = await page.evaluate((myItem) => {
+      return myItem.getAttribute("data-theme");
+    }, themeToggle);
+
+    let currentTheme = await page.evaluate(() => {
+      return localStorage.getItem("theme");
+    });
+    console.log("Current Theme is: ", currentTheme);
+  });
 });
