@@ -1,4 +1,6 @@
-Current version of the website can be seen here: https://wishingwell13.github.io/morethancode/
+Development version of the website can be seen here: https://wishingwell13.github.io/morethancode/
+
+Live version of the website can be found here: `https://morethancode.ucsd.edu/`
 
 To run via command line: `http-server . -p 3000`
 
