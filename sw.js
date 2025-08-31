@@ -3,6 +3,7 @@
 
 const CACHE_NAME = "morethancode";
 const CACHE_VERSION = "v113";
+const FULL_CACHE_NAME = CACHE_NAME + "-" + CACHE_VERSION;
 
 // Installs the service worker. Feed it some initial URLs to cache
 self.addEventListener("install", function (event) {
@@ -10,31 +11,38 @@ self.addEventListener("install", function (event) {
   self.skipWaiting();
   event.waitUntil(
     caches
-      .open(CACHE_NAME)
+      .open(FULL_CACHE_NAME)
       .then((cache) => {
         // Add all of the URLs here so that they are
         // added to the cache when the ServiceWorker is installed
         const CONTENT_URLS = [
           "/",
-          "index.html",
-          "content/01-identity.pdf",
-          "content/03-diversity-and-inclusion.pdf",
-          "content/04-accessibility-and-disability.pdf",
-          "assets/scripts/main.js",
-          "assets/scripts/progress.js",
-          "content/05-racism-and-ethnicity.pdf",
-          "content/06-lgbtqia-and-gender.pdf",
-          "content/07-classism-and-socioeconomic-status.pdf",
+          "/index.html",
+          "/content/01-identity.pdf",
+          "/content/03-diversity-and-inclusion.pdf",
+          "/content/04-accessibility-and-disability.pdf",
+          "/assets/scripts/main.js",
+          "/assets/scripts/progress.js",
+          "/content/05-racism-and-ethnicity.pdf",
+          "/content/06-lgbtqia-and-gender.pdf",
+          "/content/07-classism-and-socioeconomic-status.pdf",
+          "/assets/css/common.css",
+          "/assets/scripts/themeToggle.js",
+          "/assets/images/icons/ujima-icon-500x500.png",
+          "/manifest.json"
         ];
 
         return cache.addAll(CONTENT_URLS).catch((error) => {
           console.error("Error adding URLs to cache with addall", error);
-          for (let link of CONTENT_URLS) {
-            cache.add(link).catch((error) => {
-              console.error("sw: add error on", link, " ", error);
-              throw error;
-            });
-          }
+          // Fallback: try to add files individually
+          return Promise.allSettled(
+            CONTENT_URLS.map(url => 
+              cache.add(url).catch((error) => {
+                console.error("sw: add error on", url, " ", error);
+                return null; // Continue with other files
+              })
+            )
+          );
         });
       })
       .catch((error) => {
@@ -46,20 +54,18 @@ self.addEventListener("install", function (event) {
 
 // Activates the service worker
 self.addEventListener("activate", function (event) {
-  //   event.waitUntil(
-  //     (async () => {
-  //       // Enable navigation preload if it's supported.
-  //       // See https://developers.google.com/web/updates/2017/02/navigation-preload
-  //       if ("navigationPreload" in self.registration) {
-  //         await self.registration.navigationPreload.enable();
-  //       }
-  //     })()
-  //   );
+  const currentCacheName = FULL_CACHE_NAME;
 
   event.waitUntil(
-    caches.keys().then((CACHE_NAME) => {
+    caches.keys().then((cacheNames) => {
       return Promise.all(
-        CACHE_NAME.map((CACHE_NAME) => caches.delete(CACHE_NAME))
+        cacheNames.map((cacheName) => {
+          // Delete old cache versions, but keep the current one
+          if (cacheName.startsWith(CACHE_NAME) && cacheName !== currentCacheName) {
+            console.log("Deleting old cache:", cacheName);
+            return caches.delete(cacheName);
+          }
+        })
       );
     })
   );
@@ -69,23 +75,21 @@ self.addEventListener("activate", function (event) {
 
 // Intercept fetch requests and cache them
 self.addEventListener("fetch", function (event) {
-  // We added some known URLs to the cache above, but tracking down every
-  // subsequent network request URL and adding it manually would be very taxing.
-  // We will be adding all of the resources not specified in the intiial cache
-  // list to the cache as they come in.
-  /*******************************/
-  // This article from Google will help with this portion. Before asking ANY
-  // questions about this section, read this article.
-  // NOTE: In the article's code REPLACE fetch(event.request.url) with
-  //       fetch(event.request)
-  // https://developer.chrome.com/docs/workbox/caching-strategies-overview/
-  /*******************************/
-  // Respond to the event by opening the cache using the name we gave
-  // above (CACHE_NAME)
+  // Skip non-GET requests
+  if (event.request.method !== 'GET') {
+    return;
+  }
+
+  // Skip requests for extensions or chrome-extension URLs
+  if (event.request.url.startsWith('chrome-extension://') || 
+      event.request.url.startsWith('moz-extension://')) {
+    return;
+  }
+
   event.respondWith(
-    caches.open(CACHE_NAME).then((cache) => {
+    caches.open(FULL_CACHE_NAME).then((cache) => {
       // Go to the cache first
-      return cache.match(event.request.url).then((cachedResponse) => {
+      return cache.match(event.request).then((cachedResponse) => {
         // Return a cached response if we have one
         if (cachedResponse) {
           return cachedResponse;
@@ -93,11 +97,20 @@ self.addEventListener("fetch", function (event) {
 
         // Otherwise, hit the network
         return fetch(event.request).then((fetchedResponse) => {
+          // Check if we received a valid response
+          if (!fetchedResponse || fetchedResponse.status !== 200 || fetchedResponse.type !== 'basic') {
+            return fetchedResponse;
+          }
+
           // Add the network response to the cache for later visits
           cache.put(event.request, fetchedResponse.clone());
 
           // Return the network response
           return fetchedResponse;
+        }).catch((error) => {
+          console.error('Fetch failed for', event.request.url, error);
+          // Return a fallback response or let the error propagate
+          throw error;
         });
       });
     })

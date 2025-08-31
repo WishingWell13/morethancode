@@ -76,9 +76,13 @@ function initializeServiceWorker() {
 
   window.addEventListener("load", function () {
     this.navigator.serviceWorker
-      .register("./sw.js") // Register './sw.js' as a service worker
-      .then(console.log("Register ./sw.js success!"))
-      .catch("Register ./sw.js failed :(");
+      .register("/sw.js") // Register '/sw.js' as a service worker from root
+      .then((registration) => {
+        console.log("Register /sw.js success!", registration);
+      })
+      .catch((error) => {
+        console.error("Register /sw.js failed:", error);
+      });
   });
 }
 
